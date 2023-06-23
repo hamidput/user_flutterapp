@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter_application_1/models/team_member.dart';
 
 class TeamMemberRepository {
-  static const String apiUrl = 'https://your-api-url.com'; // Replace with your API URL
+  static const String apiUrl = 'https://localhost'; // Replace with your API URL
 
   Future<List<TeamMember>> getTeamMembers() async {
     final response = await http.get(Uri.parse('$apiUrl/team-members'));
