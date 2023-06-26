@@ -7,8 +7,13 @@ class TeamMember {
 
   static fromJson(json) {}
 
-  toJson()
-  {}
+  Map toJson()
+  =>{
+        'name': name,
+        'id': id,
+        'email': email
+      };
+  
 
   
 

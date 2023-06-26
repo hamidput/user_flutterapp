@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/team_member.dart';
-import 'package:flutter_application_1/widgets/accordion_section.dart';
 import '../pages/team_member_details_page.dart';
-
 class TeamMemberCard extends StatefulWidget {
   final TeamMember teamMember;
   final Function(TeamMember) onUpdate;
@@ -13,7 +11,8 @@ class TeamMemberCard extends StatefulWidget {
   });
 
   @override
-  _TeamMemberCardState createState() => _TeamMemberCardState();
+// ignore: library_private_types_in_public_api
+_TeamMemberCardState createState() => _TeamMemberCardState();
 }
 
 class _TeamMemberCardState extends State<TeamMemberCard> {
@@ -45,13 +44,13 @@ class _TeamMemberCardState extends State<TeamMemberCard> {
           );
         },
         trailing: IconButton(
-          icon: Icon(Icons.edit),
+          icon:const Icon(Icons.edit),
           onPressed: () {
             showDialog(
               context: context,
               builder: (context) {
                 return AlertDialog(
-                  title:const  Text('Update Team Member'),
+                  title: const Text('Update Team Member'),
                   content: Form(
                     key: _formKey,
                     child: Column(

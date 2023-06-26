@@ -4,10 +4,10 @@ import 'package:http/http.dart' as http;
 import 'package:flutter_application_1/models/team_member.dart';
 
 class TeamMemberRepository {
-  static const String apiUrl = 'https://localhost'; // Replace with your API URL
+  static const String apiUrl = 'https://localhost:3000'; // Replace with your API URL
 
   Future<List<TeamMember>> getTeamMembers() async {
-    final response = await http.get(Uri.parse('$apiUrl/team-members'));
+    final response = await http.get(Uri.parse('$apiUrl/get_teamember'));
     if (response.statusCode == 200) {
       final List<TeamMember> data = json.decode(response.body);
       return data;
@@ -19,7 +19,7 @@ class TeamMemberRepository {
 
   Future<TeamMember> updateTeamMember(TeamMember teamMember) async {
     final response = await http.put(
-      Uri.parse('$apiUrl/team-members/${teamMember.id}'),
+      Uri.parse('$apiUrl/${teamMember.id}'),
       body: teamMember.toJson(),
     );
     if (response.statusCode == 200) {
@@ -31,7 +31,7 @@ class TeamMemberRepository {
 
   Future<TeamMember> addTeamMember(TeamMember teamMember) async {
     final response = await http.post(
-      Uri.parse('$apiUrl/team-members'),
+      Uri.parse('$apiUrl/add_members'),
       body: teamMember.toJson(),
     );
     if (response.statusCode == 201) {
